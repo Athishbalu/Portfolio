@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Athi Developer — Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Cabinet+Grotesk:wght@300;400;500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- Grain texture overlay -->
+  <div class="grain"></div>
+
+  <!-- Custom cursor -->
+  <div class="cur-dot"></div>
+  <div class="cur-ring"></div>
+
+  <!-- ══ NAVBAR ══════════════════════════════════════════════ -->
+  <header id="header">
+    <div class="nav-wrap">
+      <a href="#home" class="brand">
+        <span class="brand-A">Athish</span><span class="brand-dev">BALU</span>
+      </a>
+      <nav class="desktop-nav">
+        <a href="#home"     class="nl" data-n="01">Home</a>
+        <a href="#about"    class="nl" data-n="02">About</a>
+        <a href="#skills"   class="nl" data-n="03">Skills</a>
+        <a href="#projects" class="nl" data-n="04">Work</a>
+        <a href="#contact"  class="nl" data-n="05">Contact</a>
+      </nav>
+      <div class="nav-right">
+        <button id="themeBtn" class="theme-btn" aria-label="Toggle theme">
+          <i class="fas fa-moon" id="themeIco"></i>
+        </button>
+        <a href="#contact" class="hire-btn">Hire Me <i class="fas fa-arrow-up-right"></i></a>
+        <button class="burger" id="burger"><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mob-overlay" id="mobOverlay">
+    <div class="mob-inner">
+      <a href="#home"     class="mob-nl">Home</a>
+      <a href="#about"    class="mob-nl">About</a>
+      <a href="#skills"   class="mob-nl">Skills</a>
+      <a href="#projects" class="mob-nl">Work</a>
+      <a href="#contact"  class="mob-nl">Contact</a>
+    </div>
+    <div class="mob-foot">
+      <a href="#">GH</a><a href="#">LI</a><a href="#">TW</a>
+    </div>
+  </div>
+
+  <!-- ══ HERO ════════════════════════════════════════════════ -->
+  <section id="home" class="hero">
+    <div class="hero-bg-strip"></div>
+
+    <div class="hero-left">
+      <p class="hero-eyebrow">
+        <span class="ey-dash"></span>
+        Full Stack Developer &amp; AI Engineer
+      </p>
+      <h1 class="hero-h1">
+        <span class="hw"><em class="hi" style="--d:0s">Building</em></span>
+        <span class="hw"><em class="hi name-em" style="--d:.12s">Digital</em></span>
+        <span class="hw"><em class="hi" style="--d:.24s">Futures<b class="dot-accent">.</b></em></span>
+      </h1>
+      <div class="type-row">
+        <span class="type-prefix">I craft </span>
+        <span class="type-out" id="typeOut"></span>
+        <span class="type-cur">▌</span>
+      </div>
+      <p class="hero-body">
+        Shipping pixel-perfect interfaces powered by intelligent systems.
+        React · Node.js · Python · AI APIs — all at once.
+      </p>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn-main">
+          <span>View My Work</span>
+          <span class="btn-arr"><i class="fas fa-arrow-right"></i></span>
+        </a>
+        <a href="#contact" class="btn-ghost">Let's Talk</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-card">
+        <div class="hc-head">
+          <div class="hc-avatar"><i class="fas fa-terminal"></i></div>
+          <div class="hc-status"><span class="h-pulse"></span>Available for work</div>
+        </div>
+        <div class="hc-chips">
+          <span><i class="fab fa-react"></i> React</span>
+          <span><i class="fab fa-node-js"></i> Node</span>
+          <span><i class="fab fa-python"></i> Python</span>
+          <span><i class="fas fa-brain"></i> AI/ML</span>
+          <span><i class="fab fa-docker"></i> Docker</span>
+          <span><i class="fas fa-database"></i> MongoDB</span>
+        </div>
+        <div class="hc-nums">
+          <div class="hcn"><b class="hcn-n" data-t="15">0</b><small>Projects</small></div>
+          <div class="hcn-sep"></div>
+          <div class="hcn"><b class="hcn-n" data-t="3">0</b><small>Years</small></div>
+          <div class="hcn-sep"></div>
+          <div class="hcn"><b class="hcn-n" data-t="20">0</b><small>Clients</small></div>
+        </div>
+      </div>
+      <div class="hero-geo">
+        <div class="geo-circle gc1"></div>
+        <div class="geo-circle gc2"></div>
+        <div class="geo-line gl1"></div>
+        <div class="geo-line gl2"></div>
+      </div>
+    </div>
+
+    <a href="#about" class="scroll-cue">
+      <div class="sc-wheel"></div>
+      <span>Scroll</span>
+    </a>
+  </section>
+
+  <!-- ══ ABOUT ═══════════════════════════════════════════════ -->
+  <section id="about" class="about">
+    <div class="about-accent-bar"></div>
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-vis rv">
+          <div class="av-frame">
+            <div class="av-main">
+              <i class="fas fa-code av-icon"></i>
+              <p class="av-motto">"Code is craft."</p>
+            </div>
+            <div class="av-chip avc1"><i class="fas fa-rocket"></i> Ship fast</div>
+            <div class="av-chip avc2"><i class="fas fa-lightbulb"></i> Think deep</div>
+            <div class="av-badge">
+              <strong>3+</strong>
+              <span>Yrs Exp.</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-copy rv">
+          <span class="kicker">About Me</span>
+          <h2 class="sec-h2">The story behind<br><span class="accent-txt">the code.</span></h2>
+          <p class="body-p">
+            I'm A — a Full Stack Developer and AI Engineer based in Tamil Nadu, India.
+            I build high-performance web applications and intelligent systems that solve
+            real-world problems, blending engineering rigor with design sensibility.
+          </p>
+          <p class="body-p">
+            From AI chatbots to analytics dashboards, I transform complex challenges into
+            elegant digital products using React, Node.js, Python, and modern AI APIs.
+          </p>
+          <div class="pillars">
+            <div class="pillar">
+              <i class="fas fa-feather-alt"></i>
+              <div><strong>Clean Architecture</strong><p>Scalable, readable, maintainable.</p></div>
+            </div>
+            <div class="pillar">
+              <i class="fas fa-bolt"></i>
+              <div><strong>Performance First</strong><p>Speed is a feature, not a bonus.</p></div>
+            </div>
+            <div class="pillar">
+              <i class="fas fa-brain"></i>
+              <div><strong>AI-Augmented</strong><p>Intelligence baked into every layer.</p></div>
+            </div>
+          </div>
+          <a href="#" class="btn-main" style="display:inline-flex;margin-top:4px;">
+            <span>Download CV</span>
+            <span class="btn-arr"><i class="fas fa-download"></i></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SKILLS ══════════════════════════════════════════════ -->
+  <section id="skills" class="skills">
+    <div class="skills-bg-shape"></div>
+    <div class="container">
+      <div class="skills-hd">
+        <span class="kicker rv">Tech Stack</span>
+        <h2 class="sec-h2 rv">Tools I <span class="accent-txt">master.</span></h2>
+      </div>
+      <div class="stabs rv" id="skillTabs">
+        <button class="stab active" data-cat="all">All</button>
+        <button class="stab" data-cat="frontend">Frontend</button>
+        <button class="stab" data-cat="backend">Backend</button>
+        <button class="stab" data-cat="ai">AI / ML</button>
+        <button class="stab" data-cat="devops">DevOps</button>
+      </div>
+      <div class="sk-grid" id="skillGrid"></div>
+    </div>
+  </section>
+
+  <!-- ══ PROJECTS ════════════════════════════════════════════ -->
+  <section id="projects" class="projects">
+    <div class="proj-top-cut"></div>
+    <div class="container">
+      <div class="proj-hd">
+        <div class="rv">
+          <span class="kicker">Selected Work</span>
+          <h2 class="sec-h2">Projects that<br><span class="accent-txt">speak for me.</span></h2>
+        </div>
+        <div class="gh-pill rv" id="ghPill">
+          <i class="fab fa-github"></i>
+          <span id="ghPillTxt">Loading GitHub…</span>
+        </div>
+      </div>
+
+      <div class="proj-list">
+        <article class="pj rv" data-i="0">
+          <div class="pj-num">01</div>
+          <div class="pj-body">
+            <div class="pj-top">
+              <h3 class="pj-title">Secure Online Voting System</h3>
+              <div class="pj-lnks">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fas fa-arrow-up-right"></i></a>
+              </div>
+            </div>
+            <p class="pj-desc">
+A secure and transparent online voting platform with authentication,
+encrypted vote storage, and tamper-proof results. Currently under development.
+</p>
+            <div class="pj-ft">
+             <div class="pj-tags">
+  <span>Blockchain</span>
+  <span>Security</span>
+  <span>Web</span>
+</div>
+             <div class="pj-type ongoing">Ongoing Project</div>
+            </div>
+          </div>
+          <div class="pj-icon"><i class="fas fa-robot"></i></div>
+        </article>
+
+        <article class="pj rv" data-i="1">
+          <div class="pj-num">02</div>
+          <div class="pj-body">
+            <div class="pj-top">
+              <h3 class="pj-title">Expense Tracker</h3>
+              <div class="pj-lnks">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fas fa-arrow-up-right"></i></a>
+              </div>
+            </div>
+            <p class="pj-desc">
+A simple and efficient expense tracking application to manage daily spending,
+categorize expenses, and visualize financial data.
+</p>
+            <div class="pj-ft">
+              <div class="pj-tags">
+  <span>Python</span>
+  <span>HTML</span>
+  <span>CSS</span>
+</div>
+              <div class="pj-type">Utility App</div>
+            </div>
+          </div>
+          <div class="pj-icon"><i class="fas fa-chart-area"></i></div>
+        </article>
+
+        <article class="pj rv" data-i="2">
+          <div class="pj-num">03</div>
+          <div class="pj-body">
+            <div class="pj-top">
+              <h3 class="pj-title">Password Manager</h3>
+              <div class="pj-lnks">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fas fa-arrow-up-right"></i></a>
+              </div>
+            </div>
+            <p class="pj-desc">
+A secure password manager that stores credentials safely using encryption,
+helping users manage multiple accounts efficiently.
+</p>
+            <div class="pj-ft">
+              <div class="pj-tags">
+  <span>Python</span>
+  <span>Security</span>
+</div>
+             <div class="pj-type">Security Tool</div>
+          </div>
+          <div class="pj-icon"><i class="fas fa-globe"></i></div>
+        </article>
+
+        <article class="pj rv" data-i="3">
+          <div class="pj-num">04</div>
+          <div class="pj-body">
+            <div class="pj-top">
+              <h3 class="pj-title">Banking Application</h3>
+              <div class="pj-lnks">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fas fa-arrow-up-right"></i></a>
+              </div>
+            </div>
+            <p class="pj-desc">
+A banking system built using Java that handles account management,
+transactions, and basic financial operations securely.
+</p>
+            <div class="pj-ft">
+             <div class="pj-tags">
+  <span>Java</span>
+  <span>OOP</span>
+</div>
+             <div class="pj-type">Backend App</div>
+          </div>
+          <div class="pj-icon"><i class="fas fa-shield-halved"></i></div>
+        </article>
+
+        <article class="pj pj-gh rv" id="ghCard" data-i="4">
+          <div class="pj-num gh-live"><i class="fab fa-github"></i> Live</div>
+          <div class="pj-body">
+            <div class="pj-top">
+              <h3 class="pj-title" id="ghTitle">Fetching…</h3>
+              <div class="pj-lnks">
+                <a href="#" id="ghCardLink"><i class="fas fa-arrow-up-right"></i></a>
+              </div>
+            </div>
+            <p class="pj-desc" id="ghDesc">Loading latest repository from GitHub…</p>
+            <div class="pj-ft">
+              <div class="pj-tags" id="ghTags"><span>GitHub</span></div>
+              <div class="pj-type" id="ghMeta">—</div>
+            </div>
+          </div>
+          <div class="pj-icon"><i class="fas fa-code-branch"></i></div>
+        </article>
+      </div>
+    </div>
+    <div class="proj-bot-cut"></div>
+  </section>
+
+  <!-- ══ CONTACT ══════════════════════════════════════════════ -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="ct-left rv">
+          <span class="kicker">Get In Touch</span>
+          <h2 class="sec-h2">Let's build<br><span class="accent-txt">something great.</span></h2>
+          <p class="body-p">Have a project idea? Want to collaborate? My inbox is always open — I respond within 24 hours.</p>
+          <div class="ct-links">
+            <a href="mailto:athisha660@gmail.com" class="ct-link">
+              <div class="ctl-ico"><i class="fas fa-envelope"></i></div>
+              <div class="ctl-txt"><span>Email</span><strong>athisha660@gmail.com</strong></div>
+              <i class="fas fa-arrow-up-right ctl-arr"></i>
+            </a>
+            <a href="#" class="ct-link">
+              <div class="ctl-ico"><i class="fab fa-linkedin"></i></div>
+              <div class="ctl-txt"><span>LinkedIn</span><strong>https://www.linkedin.com/in/athish-b-7ab091321?utm_source=share_via&utm_content=profile&utm_medium=member_android/in/Adev</strong></div>
+              <i class="fas fa-arrow-up-right ctl-arr"></i>
+            </a>
+            <a href="#" class="ct-link">
+              <div class="ctl-ico"><i class="fab fa-github"></i></div>
+              <div class="ctl-txt"><span>GitHub</span><strong>https://github.com/Athishbalu</strong></div>
+              <i class="fas fa-arrow-up-right ctl-arr"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="ct-right rv">
+          <form class="ct-form" id="cForm" novalidate>
+            <div class="cf-row">
+              <div class="cf-grp">
+                <label>Your Name</label>
+                <input type="text" placeholder="A Doe" required />
+              </div>
+              <div class="cf-grp">
+                <label>Email</label>
+                <input type="email" placeholder="A@email.com" required />
+              </div>
+            </div>
+            <div class="cf-grp">
+              <label>Subject</label>
+              <input type="text" placeholder="Project Inquiry" required />
+            </div>
+            <div class="cf-grp">
+              <label>Message</label>
+              <textarea rows="5" placeholder="Tell me about your project…" required></textarea>
+            </div>
+            <button type="submit" class="btn-main cf-sub" id="cfBtn">
+              <span>Send Message</span>
+              <span class="btn-arr"><i class="fas fa-paper-plane" id="cfIco"></i></span>
+            </button>
+            <div class="cf-ok" id="cfOk">
+              <i class="fas fa-circle-check"></i> Sent! I'll reply soon.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ═══════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container foot-inner">
+      <div class="foot-brand">
+        <a href="#home" class="brand"><span class="brand-A">A</span><span class="brand-dev">DEV</span></a>
+        <p>Crafting digital experiences, one line at a time.</p>
+      </div>
+      <div class="foot-nav">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Work</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="foot-socials">
+        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+    <div class="foot-bar">
+      <span>© 2026 A Developer · All rights reserved</span>
+      <span>Made with <i class="fas fa-heart" style="color:var(--accent)"></i> in Tamil Nadu</span>
+    </div>
+  </footer>
+
+  <button class="btt" id="btt" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+
+  <script src="script.js"></script>
+</body>
+</html>
