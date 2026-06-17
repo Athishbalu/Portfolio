@@ -52,6 +52,127 @@ document.addEventListener('DOMContentLoaded', () => {
   setTimeout(typeLoop, 800);
 });
 
+/* ── SKILLS DATA & GRID POPULATION ────────────────────────── */
+const SKILLS_DATA = [
+  // Programming Languages
+  { name: 'C', icon: 'fas fa-code', level: 85, category: 'languages' },
+  { name: 'Python', icon: 'fab fa-python', level: 92, category: 'languages' },
+  { name: 'Java', icon: 'fab fa-java', level: 88, category: 'languages' },
+  { name: 'Go', icon: 'fas fa-code', level: 78, category: 'languages' },
+  { name: 'MySQL', icon: 'fas fa-database', level: 90, category: 'languages' },
+  
+  // Frontend
+  { name: 'HTML5', icon: 'fab fa-html5', level: 95, category: 'frontend' },
+  { name: 'CSS3', icon: 'fab fa-css3-alt', level: 95, category: 'frontend' },
+  { name: 'React', icon: 'fab fa-react', level: 90, category: 'frontend' },
+  { name: 'JavaScript', icon: 'fab fa-js-square', level: 92, category: 'frontend' },
+  { name: 'TypeScript', icon: 'fas fa-code', level: 88, category: 'frontend' },
+  
+  // Backend
+  { name: 'Node.js', icon: 'fab fa-node-js', level: 90, category: 'backend' },
+  { name: 'Express.js', icon: 'fas fa-server', level: 88, category: 'backend' },
+  { name: 'Python', icon: 'fab fa-python', level: 92, category: 'backend' },
+  { name: 'MongoDB', icon: 'fas fa-database', level: 88, category: 'backend' },
+  { name: 'REST APIs', icon: 'fas fa-plug', level: 92, category: 'backend' },
+  
+  // OOP Concepts
+  { name: 'Encapsulation', icon: 'fas fa-lock', level: 95, category: 'oops' },
+  { name: 'Inheritance', icon: 'fas fa-project-diagram', level: 90, category: 'oops' },
+  { name: 'Polymorphism', icon: 'fas fa-code-branch', level: 88, category: 'oops' },
+  { name: 'Abstraction', icon: 'fas fa-lightbulb', level: 92, category: 'oops' },
+  { name: 'Design Patterns', icon: 'fas fa-cube', level: 85, category: 'oops' },
+  { name: 'SOLID Principles', icon: 'fas fa-building', level: 88, category: 'oops' },
+  
+  // Data Structures & Algorithms
+  { name: 'Arrays & Lists', icon: 'fas fa-list', level: 95, category: 'dsa' },
+  { name: 'Trees & Graphs', icon: 'fas fa-sitemap', level: 90, category: 'dsa' },
+  { name: 'Sorting Algos', icon: 'fas fa-arrow-up-a-z', level: 92, category: 'dsa' },
+  { name: 'Dynamic Prog', icon: 'fas fa-chart-line', level: 88, category: 'dsa' },
+  { name: 'Hash Tables', icon: 'fas fa-key', level: 92, category: 'dsa' },
+  { name: 'Binary Search', icon: 'fas fa-binoculars', level: 93, category: 'dsa' },
+  
+  // AI / ML
+  { name: 'Machine Learning', icon: 'fas fa-brain', level: 85, category: 'ai' },
+  { name: 'NLP', icon: 'fas fa-language', level: 82, category: 'ai' },
+  { name: 'Data Analysis', icon: 'fas fa-chart-bar', level: 85, category: 'ai' },
+  { name: 'Pandas', icon: 'fas fa-table', level: 87, category: 'ai' },
+  
+  // DevOps
+  { name: 'Docker', icon: 'fab fa-docker', level: 85, category: 'devops' },
+  { name: 'Git & GitHub', icon: 'fab fa-github', level: 95, category: 'devops' },
+  { name: 'Linux', icon: 'fab fa-linux', level: 80, category: 'devops' },
+];
+
+let currentSkillFilter = 'all';
+
+// Initialize skill observer first
+const skillObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const fills = entry.target.querySelectorAll('.sk-fill');
+      fills.forEach(fill => {
+        const targetWidth = fill.style.width;
+        fill.style.width = '0%';
+        void fill.offsetWidth;
+        setTimeout(() => {
+          fill.style.width = targetWidth;
+        }, 50);
+      });
+    }
+  });
+}, { threshold: 0.3, rootMargin: '0px 0px -40px 0px' });
+
+function renderSkills(filter = 'all') {
+  const grid = document.getElementById('skillGrid');
+  if (!grid) return;
+
+  const filtered = filter === 'all' 
+    ? SKILLS_DATA 
+    : SKILLS_DATA.filter(s => s.category === filter);
+
+  grid.innerHTML = '';
+
+  filtered.forEach((skill, idx) => {
+    const card = document.createElement('div');
+    card.className = 'sk-card';
+    card.style.animationDelay = `${idx * 40}ms`;
+    
+    card.innerHTML = `
+      <div class="sk-ico">
+        <i class="${skill.icon}"></i>
+      </div>
+      <div class="sk-name">${skill.name}</div>
+      <div class="sk-bar">
+        <div class="sk-fill" style="width: ${skill.level}%"></div>
+      </div>
+      <div class="sk-lvl">${skill.level}%</div>
+    `;
+    
+    grid.appendChild(card);
+    skillObserver.observe(card);
+  });
+}
+
+// Initialize skills on page load
+document.addEventListener('DOMContentLoaded', () => {
+  renderSkills('all');
+});
+
+// Tab filtering
+const skillTabs = document.getElementById('skillTabs');
+if (skillTabs) {
+  skillTabs.addEventListener('click', e => {
+    if (e.target.classList.contains('stab')) {
+      document.querySelectorAll('.stab').forEach(tab => tab.classList.remove('active'));
+      e.target.classList.add('active');
+      
+      const category = e.target.getAttribute('data-cat');
+      currentSkillFilter = category;
+      renderSkills(category);
+    }
+  });
+}
+
 /* ── Dark / Light Theme Toggle ─────────────────────────────── */
 const themeToggle = document.getElementById('themeBtn');
 const themeIcon   = document.getElementById('themeIco');
@@ -131,7 +252,10 @@ mobLinks.forEach(link => {
 /* ── Smooth scroll for all anchor links ────────────────────── */
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', e => {
-    const target = document.querySelector(link.getAttribute('href'));
+    const href = link.getAttribute('href');
+    if (href === '#') return; // Skip empty hash links
+    
+    const target = document.querySelector(href);
     if (target) {
       e.preventDefault();
       target.scrollIntoView({ behavior: 'smooth' });
@@ -154,18 +278,7 @@ const revealObserver = new IntersectionObserver(entries => {
 revealEls.forEach(el => revealObserver.observe(el));
 
 /* ── Skill bar animation ────────────────────────────────────── */
-const skillFills = document.querySelectorAll('.sk-fill');
-
-const skillObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('animated');
-      skillObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.4 });
-
-skillFills.forEach(fill => skillObserver.observe(fill));
+// Already handled in renderSkills() with skillObserver integration
 
 /* ── GitHub Live Projects Fetch ────────────────────────────── */
 // Change this to your real GitHub username to fetch live repos
@@ -185,9 +298,15 @@ async function fetchGitHubRepos() {
   // Check cache
   const cached = localStorage.getItem(cacheKey);
   const cachedAt = parseInt(localStorage.getItem(cacheTime) || '0');
-  if (cached && Date.now() - cachedAt < TTL) {
-    displayGitHubRepo(JSON.parse(cached));
-    return;
+  if (cached) {
+    try {
+      if (Date.now() - cachedAt < TTL) {
+        displayGitHubRepo(JSON.parse(cached));
+        return;
+      }
+    } catch (e) {
+      // Invalid cache, continue to fetch
+    }
   }
 
   try {
